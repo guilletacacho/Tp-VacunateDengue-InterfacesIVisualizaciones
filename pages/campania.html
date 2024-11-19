@@ -16,9 +16,18 @@
     .bg-custom{
       background-color: #b9cbea;
     }
+    .shadow-box {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: none;
+  }
+    .body{
+      background: linear-gradient(to bottom, #1a3a6e, #25457a, #2f4f87, #395b93, #4366a0, #5b75ac, #7084b8, #8594c4, #a7add2, #c6c7e1, #e3e2f0, #ffffff);
+      text-align:start;
+    }  
   </style>
 </head>
-<body>
+<body> <!--Comienzo del body-->
+  <div class="body">
   <nav class="navbar navbar-expand-lg  d-flex justify-content-center custom-nav">
     <ul class="nav nav-pills m-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -33,35 +42,77 @@
     </ul>
   </nav>
 
-  <div class="container mt-4">
-    <h1 class="mb-4 text-center">Protege Tu Salud: Información sobre el Dengue y su Prevención</h1>
+  <div class=" container mt-4 bg-custom-2">
+    <h1 class="mb-4 display-4 text-white">Protege Tu Salud: Información sobre el dengue y su prevención</h1>
     <div class="row align-items-start">
-      <div class="col-md-4 bg-custom p-3 d-flex align-items-center" style="height: 100%;">
-        <P>La vacunación contra el dengue es esencial para todas las edades. El gráfico muestra qué porcentajes de personas en cada grupo etario han sido vacunadas, ayudando a identificar los grupos más protegidos y enfocar esfuerzos de prevención donde sea necesario.</P>
+      <div class=" card col-md-7 bg-custom p-3 my-1 shadow-box">
+        <ul>
+          <li>
+            <b>Distribución de edades en la vacunación contra el dengue</b>
+            <p class="mt-1">
+              La vacunación contra el dengue es esencial para personas de todas las edades. El gráfico muestra qué porcentajes de personas en cada grupo etario han sido vacunadas, ayudando a identificar los grupos más protegidos y a enfocar esfuerzos de prevención donde sea necesario.
+              <br>
+            </p>
+          </li>
+          <li>
+            <b>La importancia de vacunarse hoy</b>
+            <p class="mt-1">
+              Protégete contra el dengue. Vacunarte no solo reduce el riesgo de contagio, sino también de complicaciones graves. ¡No importa tu edad, la prevención siempre es la mejor defensa!.
+            </p>
+          </li>
+        </ul>
       </div>
-      <div class="col-md-4 bg-primary d-flex justify-content-center">
+      <div class=" col-md-5 my-1 ">
         <img src="../assets/Grafico-1.PNG" alt="Grafico" class="img-fluid">
-      </div>
-      <div class="col-md-4 bg-custom p-3 d-flex align-items-center" style="height: 100%;">
-        <p> Protégete contra el dengue. Vacunarse reduce el riesgo de complicaciones y ayuda a mantener a todos los grupos de edad más seguros. ¡No importa tu edad, la prevención es clave!</p>
       </div>
     </div>
 
     <div class="row mt-5 align-items-start">
-      <div class="col-md-5 text-center">
-        <h3>Casos del ultimo año</h3> 
-        <img src="../assets/Grafico-2.PNG" alt="" style="width: 79%;">
+      <div class="col-md-5 text-center my-1">
+        <img src="../assets/Grafico-2.PNG" alt="" style="width: 100%;" class="img-fluid">
       </div>
-      <div class="col-md-7 bg-custom p-3">
-        <b>¿Qué es el dengue?</b>
-        <p class="mt-3 ">Es una enfermedad viral transmitida por mosquitos. Puede causar fiebre alta, dolores musculares y articulares, y en casos graves, complicaciones serias de salud. La prevención es clave para reducir su propagación."</p>
-        <b>¿Cómo prevenir el dengue?</b>
-        <p class="mt-3">Además de la vacunación, evita acumular agua en recipientes, mantén los espacios limpios, usa repelente de mosquitos y coloca mosquiteros en ventanas. Protegerse es responsabilidad de todos. Con pequeñas acciones, reducimos el riesgo de contagio.</p>
+      <div class=" card col-md-7 bg-custom p-3 my-1 shadow-box">
+        <ul>
+          <li>
+            <b>¿Qué es el dengue?</b>
+            <p class="mt-1 ">Es una enfermedad viral transmitida por mosquitos. Puede causar fiebre alta, dolores musculares y articulares, y en casos graves, complicaciones serias de salud. La prevención es clave para reducir su propagación.</p>
+          </li>
+          <li>
+            <b>¿Cómo prevenir el dengue?</b>
+        <p class="mt-1">Además de la vacunación, evita acumular agua en recipientes, mantén los espacios limpios, usa repelente de mosquitos y coloca mosquiteros en ventanas. Protegerse es responsabilidad de todos. Con pequeñas acciones, reducimos el riesgo de contagio.</p>
+          </li>
+        </ul>
       </div>
     </div>
-      <h2 class="mt-4">Presencia de sintomas:</h2>
-  </div>
-
+      <h2 class="mt-4 display-4">Presencia de sintomas:</h2>
+      <div class="row mt-5 align-items-start text-center">
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas1.png" alt="Imagen 1" class="img-fluid">
+          <p><b>Fiebre superior a 38°</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas2.png" alt="Imagen 2" class="img-fluid">
+          <p><b>Dolor de cabeza</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas3.png" alt="Imagen 3" class="img-fluid">
+          <p><b>Sarpullido</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas4.png" alt="Imagen 4" class="img-fluid">
+          <p><b>Dolor articular o muscular</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas5.png" alt="Imagen 5" class="img-fluid">
+          <p><b>Dolor abdominal</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas6.png" alt="Imagen 6" class="img-fluid">
+          <p><b>Nauseas y vomitos</b></p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Fin del body -->
   <footer class="text-dark py-4 custom-footer">
     <div class="container">
       <div class="row border-top pt-4">
