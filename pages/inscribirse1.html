@@ -117,7 +117,7 @@ body {
 
   </style>
 </head>
-<header>
+<body>
   <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
     <div class="container-fluid">
       <!-- Imagen como Logo -->
@@ -136,7 +136,7 @@ body {
         <!-- Menú centrado con pills -->
         <ul class="navbar-nav mx-auto nav nav-pills">
           <li class="nav-item">
-            <a class="text-white nav-link " aria-current="page" href="../index.html">Inicio</a>
+            <a class="text-white nav-link" aria-current="page" href="../index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="text-white nav-link" href="../pages/campania.html">Campaña</a>
@@ -150,12 +150,39 @@ body {
       </div>
     </div>
   </nav>
-</header>
-<body>
-    
- 
+
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI</label>
+              <input type="number" class="form-control" id="dni" placeholder="Ingrese DNI">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingrese su correo">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+            </div>
+            <div id="emailHelp" class="form-text">No tenes cuenta? <a href="./index.html">Registrarse</a></div>
+            <br>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
   <br>
-  <h1>Campaña de vacunación contra el dengue</h1>
+  <h1 class="display-4">Campaña de vacunación contra el dengue</h1>
   <div class="container mt-5">
     <div class="card">
         <div class="card-header">

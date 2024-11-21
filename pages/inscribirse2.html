@@ -103,7 +103,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
         <div class="container-fluid">
@@ -137,7 +136,38 @@
           </div>
         </div>
       </nav>
-        <h1 class="text-white mt-5">Seleccionar Posta Vacunatoria</h1>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="dni" class="form-label">DNI</label>
+                  <input type="number" class="form-control" id="dni" placeholder="Ingrese DNI">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="email" placeholder="Ingrese su correo">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+                </div>
+                <div id="emailHelp" class="form-text">No tenes cuenta? <a href="./index.html">Registrarse</a></div>
+                <br>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+        <h1 class=" display-4 text-white mt-5">Seleccionar Posta Vacunatoria</h1>
 
         <!-- Tarjeta con sombreado gris -->
         <form action="inscribirse3.html" method="post">
