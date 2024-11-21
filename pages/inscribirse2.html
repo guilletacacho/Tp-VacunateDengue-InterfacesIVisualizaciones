@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Postas</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1{
+           
+            text-align: center;
+        }
+        #map { height: 300px; width: 100%; 
+            align-self: center; }
+        
+        .form-group { margin: 20px 0; }
+  
+        body {
+            background: linear-gradient(to bottom, #1a3a6e, #25457a, #2f4f87, #395b93, #4366a0, #5b75ac, #7084b8, #8594c4, #a7add2, #c6c7e1, #e3e2f0, #ffffff);
+            min-height: 100vh;
+        }
+        .custom-navbar {
+      background-color: #1a3a6e;
+      width: 100%;
+    }
+    .custom-logo {
+      width: 15%;
+      height: auto;
+    }
+    .custom-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+      /* Color del borde del botón */
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .ingresarBtn_cont {
+      display: flex;
+      justify-content: flex-end;
+      width: 15%;
+    }
+        footer {
+            background-color: white;
+            width: 100%;
+        }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: 0 auto; /* Centra la tarjeta en la página */
+            margin-bottom: 40px;
+           
+           
+        }
+        .custom-nav .nav-link {
+            color: white !important;
+        }
+        .custom-nav .nav-link.active {
+            background-color: #0a2558 !important;
+        }
+        @media (max-width: 765px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 10px;
+        margin: 10px 0;
+        max-width:100%;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .form-group {
+        margin: 15px 0;
+    }
+
+    .nav-pills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-pills .nav-link {
+        margin-bottom: 5px;
+        text-align: center;
+        width: 100%;
+    }
+
+    #map {
+        
+        height: 200px; /* Reduce la altura del mapa */
+       }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container-fluid">
+          <!-- Imagen como Logo -->
+          <a class="navbar-brand" href="#">
+            <img src="../assets/logo_minisitio-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
+          </a>
+    
+          <!-- Botón del menú hamburguesa -->
+          <button class="navbar-toggler text-light custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <!-- Elementos del menú -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Menú centrado con pills -->
+            <ul class="navbar-nav mx-auto nav nav-pills">
+              <li class="nav-item">
+                <a class="text-white nav-link" aria-current="page" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-white nav-link" href="../pages/campania.html">Campaña</a>
+              </li>
+              <li class="nav-item">
+                <a class="text-white nav-link" href="../pages/notificaciones.html">Notificaciones</a>
+              </li>
+            </ul>
+            <!-- Botón de ingresar alineado a la derecha -->
+            <button class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#loginModal">Ingresar</button>
+          </div>
+        </div>
+      </nav>
+        <h1 class="text-white mt-5">Seleccionar Posta Vacunatoria</h1>
+
+        <!-- Tarjeta con sombreado gris -->
+        <form action="inscribirse3.html" method="post">
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header">
+                    Selecciona tu turno
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="municipio">Municipio</label>
+                                <select id="municipio" class="form-control">
+                                    <option value="La Matanza">La Matanza</option>
+                                    <option value="Moreno">Moreno</option>
+                                    <option value="Morón">Morón</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="posta-vacunatoria">Posta Vacunatoria</label>
+                                <select id="posta-vacunatoria" class="form-control">
+                                    <!-- Las opciones se cargarán dinámicamente -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+               
+                <div id="map"></div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fecha">Seleccionar fecha</label>
+                    <input type="text" id="fecha" class="form-control" placeholder="Selecciona una fecha">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="horario" >Seleccionar Horario</label>
+                            <select id="horario" class="form-control">
+                                <option value="8:00">8:00</option>
+                                <option value="8:10" disabled>8:10</option>
+                                <option value="8:20">8:20</option>
+                                <option value="8:30">8:30</option>
+                                <option value="8:40"disabled>8:40</option>
+                                <option value="8:50">8:50</option>
+                                <option value="9:00">9:00</option>
+                                <option value="9:10"disabled>9:10</option>
+                                <option value="9:20" disabled>9:20</option>
+                                <option value="9:30">9:30</option>
+                                <option value="9:40"disabled>9:40</option>
+                                <option value="9:50">9:50</option>
+                                <option value="10:00">10:00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Siguiente</button>
+                </div>
+            </div>
+            
+            </div>
+        
+            
+          
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        flatpickr("#fecha", {
+            dateFormat: "Y-m-d", // Formato de la fecha
+            minDate: "today",    // Solo fechas a partir de hoy
+            enable: [
+                "2024-12-05",    // Fecha específica
+                "2024-12-08",    // Fecha específica
+                {
+                    from: "2024-12-15", // Desde el 15 de diciembre en adelante
+                    to: "2025-12-30"            // Sin límite superior
+                }
+            ]
+        });
+    </script>
+    <script>
+        // Datos de las postas y sus coordenadas
+        const ubicaciones = {
+            "La Matanza": {
+                "UNLAM": { lat: -34.710, lng: -58.574, direccion: "Universidad Nacional de La Matanza" },
+                "Plaza San Justo": { lat: -34.728, lng: -58.597, direccion: "Plaza San Justo" },
+                "Predio Alberto Balestrini": { lat: -34.722, lng: -58.561, direccion: "Predio Deportivo Alberto Balestrini" }
+            },
+            "Moreno": {
+                // Aquí colocaríamos las postas de Moreno
+            },
+            "Morón": {
+                // Aquí colocaríamos las postas de Morón
+            }
+        };
+
+        let map = L.map('map').setView([-34.710, -58.574], 13); // Mapa inicial en La Matanza
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Contenedor de los marcadores
+        let markers = {};
+
+        // Función para cargar las postas de un municipio
+        function cargarPostas(municipio) {
+            const postaSelect = document.getElementById('posta-vacunatoria');
+            postaSelect.innerHTML = ''; // Limpiar las opciones anteriores
+
+            // Agregar las opciones correspondientes al municipio seleccionado
+            for (let posta in ubicaciones[municipio]) {
+                const option = document.createElement('option');
+                option.value = posta;
+                option.textContent = ubicaciones[municipio][posta].direccion;
+                postaSelect.appendChild(option);
+            }
+
+            // Si no se ha seleccionado una posta, deshabilitar el select
+            if (postaSelect.options.length === 0) {
+                postaSelect.disabled = true;
+            } else {
+                postaSelect.disabled = false;
+            }
+        }
+
+        // Función para agregar los marcadores al mapa
+        function agregarMarcadores(municipio) {
+            // Limpiar marcadores anteriores
+            for (let key in markers) {
+                map.removeLayer(markers[key]);
+            }
+
+            // Agregar nuevos marcadores para el municipio seleccionado
+            for (let posta in ubicaciones[municipio]) {
+                const { lat, lng, direccion } = ubicaciones[municipio][posta];
+                const marker = L.marker([lat, lng]).addTo(map);
+                marker.bindPopup(direccion);
+                marker.on('click', function() {
+                    // Actualizar el select de la posta cuando se hace clic en el marcador
+                    document.getElementById('municipio').value = municipio;
+                    document.getElementById('posta-vacunatoria').value = posta;
+                    actualizarMapa(posta, municipio);
+                });
+
+                // Guardar el marcador para usarlo más tarde
+                markers[`${municipio}-${posta}`] = marker;
+            }
+        }
+
+        // Función para actualizar el mapa con la posta seleccionada
+        function actualizarMapa(posta, municipio) {
+            const { lat, lng } = ubicaciones[municipio][posta];
+            map.setView([lat, lng], 14); // Centrar el mapa en la posta seleccionada
+        }
+
+        // Inicialización: Cargar datos al iniciar
+        $(document).ready(function() {
+            const municipioSeleccionado = document.getElementById('municipio').value;
+            cargarPostas(municipioSeleccionado);
+            agregarMarcadores(municipioSeleccionado);
+
+            // Cuando se cambia el municipio, actualizar las postas y los marcadores
+            $('#municipio').change(function() {
+                const municipio = $(this).val();
+                cargarPostas(municipio);
+                agregarMarcadores(municipio);
+            });
+
+            // Cuando se cambia la posta, actualizar el mapa
+            $('#posta-vacunatoria').change(function() {
+                const municipio = $('#municipio').val();
+                const posta = $(this).val();
+                actualizarMapa(posta, municipio);
+            });
+        });
+    </script>
+</body>
+<footer class="text-dark py-4 custom-footer">
+    <div class="container">
+      <div class="row border-top pt-4">
+        <!-- Sección de información -->
+        <div class="col-md-4 mb-3 text-center text-md-start">
+          <h5>Acerca de Nosotros</h5>
+          <p>Informamos a la comunidad sobre la prevención y vacunación contra el dengue. Únete a la lucha contra la enfermedad.</p>
+        </div>
+        
+        <!-- Sección de enlaces -->
+        <div class="col-md-4 mb-3 text-center">
+          <h5>Enlaces rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-dark text-decoration-none">Inicio</a></li>
+            <li><a href="./pages/campania.html" class="text-dark text-decoration-none">Campaña</a></li>
+            <li><a href="./pages/notificaciones.html" class="text-dark text-decoration-none">Notificaciones</a></li>
+          </ul>
+        </div>
+        
+        <!-- Sección de redes sociales -->
+        <div class="col-md-4 mb-3 text-center text-md-end">
+          <h5>Síguenos</h5>
+          <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-dark me-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col text-center">
+          <p class="mb-0">© 2024 Todos los derechos reservados</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
+
+
