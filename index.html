@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,12 @@
     .custom-nav {
       background-color: #1a3a6e;
     }
+
+    .custom-logo {
+      max-width: 15%;
+      height: auto;
+    }
+
     .hero {
       display: flex;
       align-items: center;
@@ -17,6 +24,7 @@
       width: 100%;
       background-image: linear-gradient(to bottom, #1a3a6e, #25457a, #2f4f87, #395b93, #4366a0, #5b75ac, #7084b8, #8594c4, #a7add2, #c6c7e1, #e3e2f0, #ffffff);
     }
+
     .hero img {
       max-width: 90%;
       height: auto;
@@ -29,34 +37,88 @@
       background-color: #b9cbea;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
     .card-horizontal .card-body {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
+
     .card-horizontal img {
       max-width: 100%;
       margin-bottom: 15px;
     }
 
-    .custom-footer{
-        margin-top: 20vh;
+    .custom-footer {
+      margin-top: 20vh;
     }
   </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg  d-flex justify-content-center custom-nav">
-    <ul class="nav nav-pills m-3" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-white active" id="pills-home-tab" href="index.html" role="tab" aria-controls="pills-home" aria-selected="true">Inicio</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-white" id="pills-profile-tab" href="./pages/campania.html" role="tab" aria-controls="pills-profile" aria-selected="false">Campaña</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link text-white" id="pills-contact-tab" href="./pages/notificaciones.html" role="tab" aria-controls="pills-contact" aria-selected="false">Notificaciones</a>
-      </li>
-    </ul>
+  <nav class="navbar navbar-expand-lg custom-nav px-3">
+    <div class="container-fluid d-flex align-items-center">
+      <!-- Logo alineado a la izquierda con menor margen -->
+      <img src="assets/logo_minisitio-removebg-preview.png" alt="Logo" class="custom-logo me-2" style="flex-shrink: 0;">
+
+      <!-- Links centrados con menor margen -->
+      <div class="d-flex flex-grow-1 justify-content-center">
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link text-white active" id="pills-home-tab" href="index.html" role="tab"
+              aria-controls="pills-home" aria-selected="true">Inicio</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link text-white" id="pills-profile-tab" href="./pages/campania.html" role="tab"
+              aria-controls="pills-profile" aria-selected="false">Campaña</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link text-white" id="pills-contact-tab" href="./pages/notificaciones.html" role="tab"
+              aria-controls="pills-contact" aria-selected="false">Notificaciones</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Botón modal alineado a la derecha con menor margen -->
+      <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Ingresar
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Ingresar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            </form>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="exampleInputDni1" class="form-label">DNI</label>
+                <input type="number" class="form-control" id="exampleInputDni1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico con nadie más.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div id="registrarse" class="form-text">No tenes cuenta? <a href="./index.html">Registrarse</a></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <section class="hero container-fluid">
@@ -66,7 +128,8 @@
       </div>
       <div class="col-md-5 text-center text-md-start">
         <h1 class="display-4 text-white mb-4">Campaña de vacunación contra el dengue</h1>
-        <p class="lead text-white mb-4 ">Infórmate sobre la campaña de vacunación contra el dengue y otros servicios de salud.</p>
+        <p class="lead text-white mb-4 ">Infórmate sobre la campaña de vacunación contra el dengue y otros servicios de
+          salud.</p>
         <a href="./pages/campania.html" class="btn btn-primary btn-lg">Saber más</a>
       </div>
     </div>
@@ -78,13 +141,14 @@
         <div class="card-body">
           <h3 class="card-title mb-4">Inscribirse para vacunarse</h3>
           <p class="card-text">
-            “Nombre de la pagina” es el sitio donde vas a poder acceder a información sobre la campaña de prevención y vacunación contra el dengue que ofrece el Ministerio de Salud de la Provincia de Buenos Aires.<br><br>
+            “Nombre de la pagina” es el sitio donde vas a poder acceder a información sobre la campaña de prevención y
+            vacunación contra el dengue que ofrece el Ministerio de Salud de la Provincia de Buenos Aires.<br><br>
             Tendrás:
-            <ul>
-              <li>Tu historial de vacunas aplicadas</li>
-              <li>Turnos web</li>
-              <li>Información sobre la prevención y consejos</li>
-            </ul>
+          <ul>
+            <li>Tu historial de vacunas aplicadas</li>
+            <li>Turnos web</li>
+            <li>Información sobre la prevención y consejos</li>
+          </ul>
           </p>
         </div>
       </div>
@@ -101,9 +165,10 @@
         <!-- Sección de información -->
         <div class="col-md-4 mb-3 text-center text-md-start">
           <h5>Acerca de Nosotros</h5>
-          <p>Informamos a la comunidad sobre la prevención y vacunación contra el dengue. Únete a la lucha contra la enfermedad.</p>
+          <p>Informamos a la comunidad sobre la prevención y vacunación contra el dengue. Únete a la lucha contra la
+            enfermedad.</p>
         </div>
-        
+
         <!-- Sección de enlaces -->
         <div class="col-md-4 mb-3 text-center">
           <h5>Enlaces rápidos</h5>
@@ -113,7 +178,7 @@
             <li><a href="./pages/notificaciones.html" class="text-dark text-decoration-none">Notificaciones</a></li>
           </ul>
         </div>
-        
+
         <!-- Sección de redes sociales -->
         <div class="col-md-4 mb-3 text-center text-md-end">
           <h5>Síguenos</h5>
@@ -122,7 +187,7 @@
           <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
-      
+
       <div class="row mt-4">
         <div class="col text-center">
           <p class="mb-0">© 2024 Todos los derechos reservados</p>
@@ -130,12 +195,22 @@
       </div>
     </div>
   </footer>
-  
+
   <!-- Añadir iconos de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">  
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 
+  <script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    })
+  </script>
+
+</body>
+
+</html>
