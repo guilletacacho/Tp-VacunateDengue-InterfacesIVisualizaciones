@@ -6,7 +6,7 @@
   <title>Campaña</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .custom-navbar {
+.custom-navbarbar {
       background-color: #1a3a6e;
     }
 
@@ -30,9 +30,40 @@
       justify-content: flex-end;
       width: 15%;
     }
+    .custom-logo {
+      width: 15%;
+      height: auto;
+    }
+
+    .custom-toggler {
+      border-color: rgba(255, 255, 255, 0.5);
+      /* Color del borde del botón */
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+
+    .ingresarBtn_cont {
+      display: flex;
+      justify-content: flex-end;
+      width: 15%;
+    }
     .custom-footer{
         margin-top: 20vh;
     }
+    .bg-custom{
+      background-color: #b9cbea;
+    }
+    .shadow-box {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: none;
+  }
+    .body{
+      background: linear-gradient(to bottom, #1a3a6e, #25457a, #2f4f87, #395b93, #4366a0, #5b75ac, #7084b8, #8594c4, #a7add2, #c6c7e1, #e3e2f0, #ffffff);
+      text-align:start;
+    }  
   </style>
 </head>
 <body>
@@ -70,6 +101,111 @@
   </nav>
   <h1>Campaña</h1>
 
+<body> <!--Comienzo del body-->
+  <div class="body">
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+      <div class="container-fluid">
+        <!-- Imagen como Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logo_minisitio-removebg-preview.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
+        </a>
+  
+        <!-- Botón del menú hamburguesa -->
+        <button class="navbar-toggler text-light custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <!-- Elementos del menú -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Menú centrado con pills -->
+          <ul class="navbar-nav mx-auto nav nav-pills">
+            <li class="nav-item">
+              <a class="text-white nav-link " aria-current="page" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link active" href="../pages/campania.html">Campaña</a>
+            </li>
+            <li class="nav-item">
+              <a class="text-white nav-link" href="../pages/notificaciones.html">Notificaciones</a>
+            </li>
+          </ul>
+          <!-- Botón de ingresar alineado a la derecha -->
+          <button class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#loginModal">Ingresar</button>
+        </div>
+      </div>
+    </nav>
+  <div class=" container mt-4">
+    <h1 class="mb-4 display-4 text-white">Protege Tu Salud: Información sobre el dengue y su prevención</h1>
+    <div class="row align-items-start">
+      <div class=" card col-md-7 bg-custom p-3 my-1 shadow-box">
+        <ul>
+          <li>
+            <b>Distribución de edades en la vacunación contra el dengue</b>
+            <p class="mt-1">
+              La vacunación contra el dengue es esencial para personas de todas las edades. El gráfico muestra qué porcentajes de personas en cada grupo etario han sido vacunadas, ayudando a identificar los grupos más protegidos y a enfocar esfuerzos de prevención donde sea necesario.
+              <br>
+            </p>
+          </li>
+          <li>
+            <b>La importancia de vacunarse hoy</b>
+            <p class="mt-1">
+              Protégete contra el dengue. Vacunarte no solo reduce el riesgo de contagio, sino también de complicaciones graves. ¡No importa tu edad, la prevención siempre es la mejor defensa!.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class=" col-md-5 my-1 ">
+        <img src="../assets/Grafico-1.PNG" alt="Grafico" class="img-fluid">
+      </div>
+    </div>
+
+    <div class="row mt-5 align-items-start">
+      <div class="col-md-5 text-center my-1">
+        <img src="../assets/Grafico-2.PNG" alt="" style="width: 100%;" class="img-fluid">
+      </div>
+      <div class=" card col-md-7 bg-custom p-3 my-1 shadow-box">
+        <ul>
+          <li>
+            <b>¿Qué es el dengue?</b>
+            <p class="mt-1 ">Es una enfermedad viral transmitida por mosquitos. Puede causar fiebre alta, dolores musculares y articulares, y en casos graves, complicaciones serias de salud. La prevención es clave para reducir su propagación.</p>
+          </li>
+          <li>
+            <b>¿Cómo prevenir el dengue?</b>
+        <p class="mt-1">Además de la vacunación, evita acumular agua en recipientes, mantén los espacios limpios, usa repelente de mosquitos y coloca mosquiteros en ventanas. Protegerse es responsabilidad de todos. Con pequeñas acciones, reducimos el riesgo de contagio.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <h2 class="mt-4 display-4">Presencia de sintomas:</h2>
+      <div class="row mt-5 align-items-start text-center">
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas1.png" alt="Imagen 1" class="img-fluid">
+          <p><b>Fiebre superior a 38°</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas2.png" alt="Imagen 2" class="img-fluid">
+          <p><b>Dolor de cabeza</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas3.png" alt="Imagen 3" class="img-fluid">
+          <p><b>Sarpullido</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas4.png" alt="Imagen 4" class="img-fluid">
+          <p><b>Dolor articular o muscular</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas5.png" alt="Imagen 5" class="img-fluid">
+          <p><b>Dolor abdominal</b></p>
+        </div>
+        <div class="col-md-2">
+          <img src="../assets/icono_sintomas6.png" alt="Imagen 6" class="img-fluid">
+          <p><b>Nauseas y vomitos</b></p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Fin del body -->
   <footer class="text-dark py-4 custom-footer">
     <div class="container">
       <div class="row border-top pt-4">
@@ -95,6 +231,7 @@
           <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
           <a href="#" class="text-dark me-3"><i class="bi bi-twitter"></i></a>
           <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+          
         </div>
       </div>
       
