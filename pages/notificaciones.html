@@ -284,8 +284,8 @@
           <h5>Enlaces rápidos</h5>
           <ul class="list-unstyled">
             <li><a href="../index.html" class="text-dark text-decoration-none">Inicio</a></li>
-            <li><a href="campania.html" class="text-dark text-decoration-none">Campaña</a></li>
-            <li><a href="notificaciones.html" class="text-dark text-decoration-none">Notificaciones</a></li>
+            <li><a href="../pages/campania.html" class="text-dark text-decoration-none">Campaña</a></li>
+            <li><a href="../pages/notificaciones.html" class="text-dark text-decoration-none">Notificaciones</a></li>
           </ul>
         </div>
         <div class="col-md-4 mb-3 text-center text-md-end">
@@ -303,17 +303,21 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const botonesEnviarEmail = document.querySelectorAll('.enviar-email');
-      botonesEnviarEmail.forEach(boton => {
-        boton.addEventListener('click', () => {
-          const email = boton.getAttribute('data-email');
-          document.getElementById('emailDireccion').textContent = email;
-        });
-      });
-    });
-  </script>
+  <!-- Añadir iconos de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    })
+  </script>
+
 </body>
+
 </html>
